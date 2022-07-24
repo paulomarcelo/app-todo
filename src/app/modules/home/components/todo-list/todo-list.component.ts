@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 //Interface
 import { TaskList } from '../../model/task-list';
 
@@ -10,13 +11,15 @@ import { TaskList } from '../../model/task-list';
 })
 export class TodoListComponent implements OnInit {
 
-  public taskList: Array<TaskList> = [
-   { task: "task 1", checked: true}
-  ];
+  public taskList: Array<TaskList> = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public setEmitTaskList(event: string){
+    this.taskList.push({task: event, checked: false});
   }
 
   public deleteItemTaskList(event: number){
